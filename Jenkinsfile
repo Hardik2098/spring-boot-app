@@ -16,7 +16,7 @@ pipeline {
                 echo "PATH = ${PATH}"
                 echo "M2_HOME = ${M2_HOME}"
                 echo "JAVA_HOME = ${JAVA_HOME}"
-                sh 'mvn clean install'
+                sh 'mvn -Dmaven.test.failure.ignore=true install'
             }
         }
 
