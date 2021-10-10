@@ -2,13 +2,20 @@ pipeline {
 
     agent any
 
+    tools {
+            maven 'Maven'
+            jdk 'JDK-8'
+    }
+
     stages {
 
         stage("build") {
 
             steps {
                 echo 'building the application...'
-                sh 'mvnw clean install'
+                echo "PATH = ${PATH}"
+                echo "M2_HOME = ${M2_HOME}"
+                echo "JAVA_HOME = ${JAVA_HOME}"
             }
         }
 
