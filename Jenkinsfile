@@ -17,7 +17,7 @@ pipeline {
             }
         }
 
-        stage("docker") {
+        stage("docker build") {
 
             steps {
                 echo 'building the docker image...'
@@ -25,6 +25,16 @@ pipeline {
                 bat 'docker build -t spring-boot-app .'
                 bat 'docker image list'
                 bat 'docker tag spring-boot-app hardikjain2098/spring-boot-app:spring-boot-app'
+            }
+        }
+
+        stage("docker push") {
+
+            steps {
+                echo 'pushing the docker image to docker hub...'
+                withCredentials([string(credentialsId: 'docker_credentials', variable: 'USERNAME', variable: 'PASSWORD')]) {
+                    bat 'docker login -u $USERNAME -p $PASSWORD'
+                }
             }
         }
 
