@@ -16,10 +16,11 @@ pipeline {
             }
         }
 
-        stage("test") {
+        stage("docker") {
 
             steps {
-                echo 'testing the application...'
+                echo 'building the docker image...'
+                bat 'docker -version'
             }
         }
 
