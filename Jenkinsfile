@@ -12,6 +12,7 @@ pipeline {
 
             steps {
                 echo 'building the application...'
+                bat 'mvn -version'
                 bat 'mvn clean install'
             }
         }
@@ -21,11 +22,9 @@ pipeline {
             steps {
                 echo 'building the docker image...'
                 bat 'docker version'
-                bat 'cd'
-                bat 'dir'
-//                 bat 'docker build -t spring-boot-app .'
-//                 bat 'docker image list'
-//                 bat 'docker tag spring-boot-app hardikjain2098/spring-boot-app:spring-boot-app'
+                bat 'docker build -t spring-boot-app .'
+                bat 'docker image list'
+                bat 'docker tag spring-boot-app hardikjain2098/spring-boot-app:spring-boot-app'
             }
         }
 
