@@ -36,6 +36,8 @@ pipeline {
                     bat "docker login -u ${USERNAME} -p ${PASSWORD}"
                 }
                 bat 'docker push hardikjain2098/spring-boot-app:spring-boot-app'
+                bat 'docker rmi spring-boot-app'
+                bat 'docker rmi hardikjain2098/spring-boot-app:spring-boot-app'
             }
         }
 
