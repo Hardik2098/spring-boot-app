@@ -35,6 +35,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     bat "docker login -u ${USERNAME} -p ${PASSWORD}"
                 }
+                bat 'docker push hardikjain2098/spring-boot-app:spring-boot-app'
             }
         }
 
