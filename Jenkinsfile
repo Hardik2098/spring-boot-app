@@ -32,7 +32,7 @@ pipeline {
 
             steps {
                 echo 'pushing the docker image to docker hub...'
-                withCredentials([string(credentialsId: 'docker_credentials', variable: 'USERNAME', variable: 'PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     bat 'docker login -u $USERNAME -p $PASSWORD'
                 }
             }
