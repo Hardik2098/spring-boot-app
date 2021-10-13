@@ -49,7 +49,6 @@ pipeline {
                     bat 'kubectl version'
                     bat 'kubectl apply -f deployment.yml'
                     bat 'kubectl get all'
-                    bat 'minikube service spring-boot-app-service'
                 }
 
             }
