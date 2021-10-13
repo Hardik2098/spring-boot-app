@@ -45,10 +45,13 @@ pipeline {
 
             steps {
                 echo 'deploying the application...'
-                bat 'kubectl version'
-                bat 'kubectl apply -f deployment.yml'
-                bat 'kubectl get all'
-                bat 'minikube service spring-boot-app-service'
+                withKubeConfig([credentialsId: 'minikube-certificate', serverUrl: 'https://127.0.0.1:61148']) {
+                    bat 'kubectl version'
+                    bat 'kubectl apply -f deployment.yml'
+                    bat 'kubectl get all'
+                    bat 'minikube service spring-boot-app-service'
+                }
+
             }
         }
     }
