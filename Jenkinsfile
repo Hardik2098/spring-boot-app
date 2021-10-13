@@ -45,6 +45,7 @@ pipeline {
 
             steps {
                 echo 'deploying the application...'
+                bat 'kubectl version'
             }
         }
     }
