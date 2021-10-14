@@ -49,6 +49,9 @@ pipeline {
                     bat 'kubectl version'
                     bat 'kubectl apply -f deployment.yml'
                     bat 'kubectl get all'
+                    bat 'timeout 60'
+                    bat 'kubectl get all'
+                    bat 'kubectl port-forward service spring-boot-app-service 9000:9000'
                 }
 
             }

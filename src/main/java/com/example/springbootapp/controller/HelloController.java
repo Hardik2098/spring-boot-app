@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class HelloController {
 
-    @GetMapping("/hello")
+    @GetMapping("/")
     public ResponseEntity<String> hello() {
         return new ResponseEntity<>("Hello from spring boot!", HttpStatus.OK);
     }
