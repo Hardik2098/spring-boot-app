@@ -18,7 +18,7 @@ spec:
       containers:
         - name: spring-boot-app
           image: hardikjain2098/spring-boot-app:spring-boot-app
-          imagePullPolicy: "Always"
+          imagePullPolicy: Always
           ports:
             - containerPort: 9000
 ---
