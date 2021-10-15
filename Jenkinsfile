@@ -47,6 +47,8 @@ pipeline {
                 echo 'deploying the application...'
                 withKubeConfig([credentialsId: 'minikube-certificate']) {
                     bat 'kubectl version'
+                    bat 'kubectl delete deployment spring-boot-app'
+                    bat 'kubectl delete service spring-boot-app-service'
                     bat 'kubectl apply -f deployment.yml'
                     bat 'kubectl get all'
                 }
