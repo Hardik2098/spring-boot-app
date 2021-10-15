@@ -11,7 +11,7 @@ public class HelloController {
 
     @GetMapping("/")
     public ResponseEntity<String> hello() {
-        return new ResponseEntity<>("Hello from spring boot!", HttpStatus.OK);
+        return new ResponseEntity<>("Hello from spring boot, jenkins, docker and kubernetes!", HttpStatus.OK);
     }
 
     @GetMapping("/helloName/{name}")
