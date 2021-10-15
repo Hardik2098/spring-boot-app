@@ -45,7 +45,7 @@ pipeline {
 
             steps {
                 echo 'deploying the application...'
-                withKubeConfig([credentialsId: 'minikube-certificate', serverUrl: 'https://127.0.0.1:61148']) {
+                withKubeConfig([credentialsId: 'minikube-certificate']) {
                     bat 'kubectl version'
                     bat 'kubectl apply -f deployment.yml'
                     bat 'kubectl get all'
