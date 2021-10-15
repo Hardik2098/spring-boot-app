@@ -11,10 +11,11 @@ public class HelloController {
 
     @GetMapping("/")
     public ResponseEntity<String> hello() {
-        return new ResponseEntity<>("Hello from spring boot, jenkins, docker and kubernetes!", HttpStatus.OK);
+        return new ResponseEntity<>("Hello from spring boot, jenkins, docker and kubernetes!\n Latest image pulled from dockerhub",
+                HttpStatus.OK);
     }
 
-    @GetMapping("/helloName/{name}")
+    @GetMapping("/hello/{name}")
     public ResponseEntity<String> hello(@PathVariable("name") String name) {
         return new ResponseEntity<>("Hello " + name + "!", HttpStatus.OK);
     }
