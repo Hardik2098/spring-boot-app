@@ -11,7 +11,7 @@ public class HelloController {
 
     @GetMapping("/")
     public ResponseEntity<String> hello() {
-        return new ResponseEntity<>("This is a new change",
+        return new ResponseEntity<>("Another change to check",
                 HttpStatus.OK);
     }
 
