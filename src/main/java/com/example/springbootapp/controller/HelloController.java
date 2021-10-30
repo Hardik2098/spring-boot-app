@@ -11,7 +11,7 @@ public class HelloController {
 
     @GetMapping("/")
     public ResponseEntity<String> hello() {
-        return new ResponseEntity<>("Hello from spring boot",
+        return new ResponseEntity<>("This is a new change",
                 HttpStatus.OK);
     }
 
