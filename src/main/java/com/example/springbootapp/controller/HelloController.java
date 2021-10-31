@@ -11,7 +11,7 @@ public class HelloController {
 
     @GetMapping("/")
     public ResponseEntity<String> hello() {
-        return new ResponseEntity<>("Another change to check",
+        return new ResponseEntity<>("Successfully created ci/cd pipeline with kubernetes on aws!",
                 HttpStatus.OK);
     }
 
