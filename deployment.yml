@@ -5,7 +5,7 @@ metadata:
   labels:
     app: spring-boot-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: spring-boot-app
@@ -21,9 +21,6 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 9000
-          env:
-            - name: PORT
-              value: "9000"
 ---
 apiVersion: v1
 kind: Service
@@ -34,5 +31,6 @@ spec:
     app: spring-boot-app
   type: LoadBalancer
   ports:
-    - port: 9000
+    - protocol: TCP
+      port: 80
       targetPort: 9000
