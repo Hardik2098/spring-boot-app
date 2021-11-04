@@ -2,7 +2,7 @@ server:
   port: 9000
 spring:
   datasource:
-    url: jdbc:postgresql://pg:5432/spring-boot-app-db
+    url: jdbc:postgresql://postgres-service:5432/spring-boot-app-db
     username: postgres
     password: postgres
   jpa:
