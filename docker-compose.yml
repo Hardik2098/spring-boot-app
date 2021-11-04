@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  pg:
+    container_name: pg
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: spring-boot-app-db
+    ports:
+      - "5432:5432"
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: hardikjpr20@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - "5050:80"
+  spring-boot-app:
+    container_name: spring-boot-app
+    image: spring-boot-app
+    restart: always
+    ports:
+      - "9000:9000"

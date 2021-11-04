@@ -1,0 +1,19 @@
+server:
+  port: 9000
+spring:
+  datasource:
+    url: jdbc:postgresql://pg:5432/spring-boot-app-db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show_sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+management:
+  endpoints:
+    web:
+      exposure:
+        include=*:

@@ -43,19 +43,16 @@ pipeline {
 
         stage("deploy") {
 
-           steps {
-               echo 'deploying the application...'
-               withAWS(credentials: 'AWS_CREDENTIALS', region: 'us-east-2') {
-                   bat 'aws configure list'
-                   withKubeConfig([credentialsId: 'KUBERNETES']) {
-                       bat 'kubectl version'
-                       bat 'kubectl delete deployment spring-boot-app'
-                       bat 'kubectl delete service spring-boot-app-service'
-                       bat 'kubectl apply -f deployment.yml'
-                       bat 'kubectl get all'
-                   }
-               }
-           }
+            steps {
+                echo 'deploying the application...'
+                withKubeConfig([credentialsId: 'minikube-certificate']) {
+                    bat 'kubectl version'
+                    bat 'kubectl delete deployment spring-boot-app'
+                    bat 'kubectl delete service spring-boot-app-service'
+                    bat 'kubectl apply -f deployment.yml'
+                    bat 'kubectl get all'
+                }
+            }
         }
     }
 }
