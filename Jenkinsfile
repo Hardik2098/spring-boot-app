@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'building the application...'
                 bat 'mvn -version'
-                bat 'mvn clean install'
+                bat 'mvn clean install -DskipTests'
             }
         }
 
