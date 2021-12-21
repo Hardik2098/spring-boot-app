@@ -22,6 +22,9 @@ pipeline {
             steps {
                 echo 'building the docker image...'
                 bat 'docker version'
+                withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    bat "docker login -u ${USERNAME} -p ${PASSWORD}"
+                }
                 bat 'docker build -t spring-boot-app .'
                 bat 'docker tag spring-boot-app hardikjain2098/spring-boot-app:spring-boot-app'
                 bat 'docker image list'
@@ -32,9 +35,6 @@ pipeline {
 
             steps {
                 echo 'pushing the docker image to docker hub...'
-                withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    bat "docker login -u ${USERNAME} -p ${PASSWORD}"
-                }
                 bat 'docker push hardikjain2098/spring-boot-app:spring-boot-app'
                 bat 'docker rmi spring-boot-app'
                 bat 'docker rmi hardikjain2098/spring-boot-app:spring-boot-app'
