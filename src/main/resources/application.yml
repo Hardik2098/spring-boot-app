@@ -2,12 +2,13 @@ server:
   port: 9000
 spring:
   datasource:
+#    use localhost in jdbc url to build the application locally and build it. For container postgres-service should be used instead
     url: jdbc:postgresql://postgres-service:5432/spring-boot-app-db
     username: postgres
     password: postgres
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show_sql: true
     properties:
       hibernate:
